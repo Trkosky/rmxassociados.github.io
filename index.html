@@ -1,0 +1,1013 @@
+# Criar site institucional da RMX Associados com Método TRACTION
+
+site_rmx = """<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMX Associados | Consultoria em Gestão de Transporte - Método TRACTION</title>
+    <meta name="description" content="RMX Associados - Consultoria especializada em redução de custos, reestruturação de setor e otimização de transportadoras. Método TRACTION proprietário.">
+    <meta name="keywords" content="consultoria transporte, gestão de custos, reestruturação transportadora, método traction, rmx associados">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="RMX Associados | Consultoria em Gestão de Transporte">
+    <meta property="og:description" content="Reduza até 25% dos custos operacionais com o Método TRACTION">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.rmxassociados.com.br">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rmx: {
+                            blue: '#004E89',
+                            dark: '#1C1C1C',
+                            orange: '#FF6B35',
+                            light: '#F5F5F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        
+        .gradient-rmx {
+            background: linear-gradient(135deg, #004E89 0%, #1A659E 100%);
+        }
+        
+        .gradient-traction {
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255,107,53,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0,78,137,0.1) 0%, transparent 50%);
+        }
+        
+        .float-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .method-card {
+            transition: all 0.3s ease;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .stat-counter {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FF6B35;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #FF6B35;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #FF6B35;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl gradient-rmx flex items-center justify-center text-white font-bold text-xl">
+                        RMX
+                    </div>
+                    <div>
+                        <span class="font-bold text-xl text-gray-900">RMX</span>
+                        <span class="text-gray-500 text-sm block -mt-1">Associados</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#sobre" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Sobre</a>
+                    <a href="#metodo" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Método TRACTION</a>
+                    <a href="#servicos" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Serviços</a>
+                    <a href="#resultados" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Resultados</a>
+                    <a href="#contato" class="gradient-traction text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg transition-all">
+                        Fale Conosco
+                    </a>
+                </div>
+                
+                <button class="md:hidden text-gray-600" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#sobre" class="block py-2 text-gray-600">Sobre</a>
+                <a href="#metodo" class="block py-2 text-gray-600">Método TRACTION</a>
+                <a href="#servicos" class="block py-2 text-gray-600">Serviços</a>
+                <a href="#resultados" class="block py-2 text-gray-600">Resultados</a>
+                <a href="#contato" class="block py-2 text-rmx-orange font-medium">Fale Conosco</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-32 hero-pattern relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                        <i class="fas fa-award"></i>
+                        Método TRACTION® Proprietário
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                        Reduza custos e <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">transforme</span> sua transportadora
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        A <strong>RMX Associados</strong> é uma consultoria especializada em gestão de custos, consumo e reestruturação de setor para transportadoras. Nosso <strong>Método TRACTION</strong> já reduziu custos operacionais em até 25% para dezenas de empresas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/5511965866812" target="_blank" class="gradient-traction text-white px-8 py-4 rounded-full font-semibold text-center hover:shadow-xl transition-all flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            Solicitar Diagnóstico Gratuito
+                        </a>
+                        <a href="#metodo" class="bg-white text-gray-700 border-2 border-gray-200 px-8 py-4 rounded-full font-semibold text-center hover:border-gray-300 transition-all">
+                            Conhecer o Método
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-6 mt-8 text-sm text-gray-500">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>Diagnóstico sem compromisso</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>Resultados em 90 dias</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-left">
+                    <div class="relative bg-white rounded-3xl shadow-2xl p-6 lg:p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <p class="text-sm text-gray-500">Economia projetada</p>
+                                <p class="text-3xl font-bold text-gray-900">R$ 450.000/ano</p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-arrow-trend-down text-green-600 text-xl"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-gas-pump text-orange-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Combustível</p>
+                                        <p class="text-sm text-gray-500">Redução de 18%</p>
+                                    </div>
+                                </div>
+                                <span class="text-green-600 font-bold">-R$ 180k</span>
+                            </div>
+                            
+                            <div class="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-wrench text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Manutenção</p>
+                                        <p class="text-sm text-gray-500">Redução de 35%</p>
+                                    </div>
+                                </div>
+                                <span class="text-green-600 font-bold">-R$ 95k</span>
+                            </div>
+                            
+                            <div class="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-chart-line text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Frota ociosa</p>
+                                        <p class="text-sm text-gray-500">Aumento 25% uso</p>
+                                    </div>
+                                </div>
+                                <span class="text-green-600 font-bold">-R$ 175k</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-orange-50 rounded-xl border border-orange-100">
+                            <p class="text-sm text-orange-800 text-center">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                Simulação baseada em frota de 50 veículos
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating badges -->
+                    <div class="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-3 animate-bounce">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-users text-blue-600"></i>
+                            <span class="font-bold text-gray-800">+50 clientes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-4xl lg:text-5xl font-bold text-orange-400 stat-counter" data-target="50">0</div>
+                    <div class="text-gray-400 mt-2">Transportadoras atendidas</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl lg:text-5xl font-bold text-orange-400 stat-counter" data-target="25">0</div>
+                    <div class="text-gray-400 mt-2">% médio de redução de custos</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl lg:text-5xl font-bold text-orange-400 stat-counter" data-target="500">0</div>
+                    <div class="text-gray-400 mt-2">Milhões economizados</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl lg:text-5xl font-bold text-orange-400 stat-counter" data-target="15">0</div>
+                    <div class="text-gray-400 mt-2">Anos de experiência</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                        Quem somos
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        A <strong>RMX Associados</strong> nasceu da necessidade de trazer <strong>racionalidade e dados</strong> para a gestão de transportadoras. Não acreditamos em achismos — nossas recomendações são baseadas em análise profunda de custos, benchmarking de mercado e metodologias comprovadas.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Nosso diferencial é o <strong>Método TRACTION</strong>, desenvolvido após 15 anos de experiência no setor de transporte rodoviário de cargas. Uma abordagem integrada que combina gestão financeira, lean logistics e reestruturação organizacional.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-calculator text-orange-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Análise Financeira</h4>
+                                <p class="text-sm text-gray-500">Custeio ABC por rota e cliente</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-cogs text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Lean Logistics</h4>
+                                <p class="text-sm text-gray-500">Eliminação de desperdícios</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-sitemap text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Reestruturação</h4>
+                                <p class="text-sm text-gray-500">Redesenho organizacional</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-chart-bar text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Benchmarking</h4>
+                                <p class="text-sm text-gray-500">Comparativo de mercado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop" alt="Consultoria em transporte" class="rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+                    
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 max-w-xs">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-quote-left text-orange-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Transportadora Sul</p>
+                                <p class="text-sm text-gray-500">Carga fracionada</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm italic">
+                            "A RMX reduziu nosso custo por km em 19% em apenas 4 meses. Metodologia impecável."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Método TRACTION Section -->
+    <section id="metodo" class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-block bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    Metodologia Proprietária
+                </span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                    Método <span class="text-orange-500">TRACTION</span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    <strong>Transformação Racional e Contínua para Otimização Integrada</strong>. Uma metodologia de 8 fases que integra análise financeira, lean logistics e reestruturação organizacional.
+                </p>
+            </div>
+
+            <!-- TRACTION Acronym -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="method-card bg-white rounded-2xl p-6 shadow-lg border-t-4 border-orange-500" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-orange-600">T</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Transformar</h3>
+                    <p class="text-gray-600 text-sm">Diagnóstico profundo e mapeamento da realidade operacional e financeira</p>
+                </div>
+                
+                <div class="method-card bg-white rounded-2xl p-6 shadow-lg border-t-4 border-blue-500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-blue-600">R</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Racionalizar</h3>
+                    <p class="text-gray-600 text-sm">Eliminação de desperdícios visíveis e ocultos através de lean logistics</p>
+                </div>
+                
+                <div class="method-card bg-white rounded-2xl p-6 shadow-lg border-t-4 border-green-500" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-green-600">A</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Analisar</h3>
+                    <p class="text-gray-600 text-sm">Benchmarking de custos e indicadores comparativos com o mercado</p>
+                </div>
+                
+                <div class="method-card bg-white rounded-2xl p-6 shadow-lg border-t-4 border-purple-500" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-purple-600">C</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Controlar</h3>
+                    <p class="text-gray-600 text-sm">Implementação de sistemas de gestão e monitoramento contínuo</p>
+                </div>
+                
+                <div class="method-card bg-white rounded-2xl p-6 shadow-lg border-t-4 border-red-500" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-red-600">T</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Transformar</h3>
+                    <p class="text-gray-600 text-sm">Reestruturação organizacional e capacitação de equipes</p>
+                </div>
+                
+                <div class="method-card bg-white rounded-2xl p-6 shadow-lg border-t-4 border-yellow-500" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-yellow-600">I</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Integrar</h3>
+                    <p class="text-gray-600 text-sm">Sistemas, processos e pessoas em operação unificada</p>
+                </div>
+                
+                <div class="method-card bg-white rounded-2xl p-6 shadow-lg border-t-4 border-indigo-500" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-indigo-600">O</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Otimizar</h3>
+                    <p class="text-gray-600 text-sm">Melhoria contínua e adaptação às novas realidades de mercado</p>
+                </div>
+                
+                <div class="method-card bg-white rounded-2xl p-6 shadow-lg border-t-4 border-pink-500" data-aos="fade-up" data-aos-delay="700">
+                    <div class="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-pink-600">N</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Nivelar</h3>
+                    <p class="text-gray-600 text-sm">Padronização de melhores práticas e sustentabilidade dos resultados</p>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
+                <h3 class="text-2xl font-bold text-center mb-12">Jornada de Implementação</h3>
+                
+                <div class="relative">
+                    <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+                    
+                    <div class="space-y-8">
+                        <div class="relative pl-12 timeline-item" data-aos="fade-right">
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <div class="flex items-center gap-4 mb-3">
+                                    <span class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</span>
+                                    <h4 class="font-bold text-lg">Diagnóstico Profundo</h4>
+                                    <span class="text-sm text-gray-500 ml-auto">Semanas 1-4</span>
+                                </div>
+                                <p class="text-gray-600">Mapeamento completo da operação, análise de custos fixos e variáveis, identificação de gargalos e desperdícios.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative pl-12 timeline-item" data-aos="fade-right" data-aos-delay="100">
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <div class="flex items-center gap-4 mb-3">
+                                    <span class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</span>
+                                    <h4 class="font-bold text-lg">Planejamento Estratégico</h4>
+                                    <span class="text-sm text-gray-500 ml-auto">Semanas 5-8</span>
+                                </div>
+                                <p class="text-gray-600">Definição de roadmap, priorização de quick wins, projeção de cenários pós-reforma tributária.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative pl-12 timeline-item" data-aos="fade-right" data-aos-delay="200">
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <div class="flex items-center gap-4 mb-3">
+                                    <span class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</span>
+                                    <h4 class="font-bold text-lg">Implementação Lean</h4>
+                                    <span class="text-sm text-gray-500 ml-auto">Semanas 9-18</span>
+                                </div>
+                                <p class="text-gray-600">Redesenho de processos, otimização de rotas, renegociação de contratos, adequação de frota.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative pl-12 timeline-item" data-aos="fade-right" data-aos-delay="300">
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <div class="flex items-center gap-4 mb-3">
+                                    <span class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">4</span>
+                                    <h4 class="font-bold text-lg">Reestruturação e Sustentação</h4>
+                                    <span class="text-sm text-gray-500 ml-auto">Semanas 19-32</span>
+                                </div>
+                                <p class="text-gray-600">Redesenho organizacional, capacitação de equipes, monitoramento contínuo e melhoria contínua.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                    Nossos Serviços
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Soluções completas para otimização de transportadoras, desde o diagnóstico inicial até a sustentação dos resultados.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                        <i class="fas fa-calculator text-white text-6xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-3">Gestão de Custos e Consumo</h3>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>Custeio ABC por rota e cliente</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>Análise de custo por km rodado</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>Otimização de combustível</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>Controle de pneus e peças</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/5511965866812" target="_blank" class="text-orange-600 font-semibold hover:text-orange-700 flex items-center gap-2">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                        <i class="fas fa-sitemap text-white text-6xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-3">Reestruturação Setorial</h3>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>Redesenho da malha logística</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>Otimização de rotas com IA</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>Adaptação à Reforma Tributária 2026</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>Reorganização de CDs e bases</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/5511965866812" target="_blank" class="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-6xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-3">Eficiência Operacional</h3>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>Lean Logistics aplicado</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>KPIs em tempo real</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>Treinamento de condutores</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-green-500 mt-1"></i>
+                                <span>Manutenção preventiva preditiva</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/5511965866812" target="_blank" class="text-green-600 font-semibold hover:text-green-700 flex items-center gap-2">
+                            Saiba mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados Section -->
+    <section id="resultados" class="py-20 lg:py-32 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+                    Resultados Comprovados
+                </h2>
+                <p class="text-lg text-gray-400">
+                    Média de resultados alcançados em transportadoras após 6 meses de implementação do Método TRACTION.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="text-center p-6 bg-white/5 rounded-2xl backdrop-blur" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-gas-pump text-orange-400 text-2xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-orange-400 mb-2">-18%</div>
+                    <p class="text-gray-400">Consumo de Combustível</p>
+                </div>
+
+                <div class="text-center p-6 bg-white/5 rounded-2xl backdrop-blur" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-wrench text-blue-400 text-2xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-blue-400 mb-2">-35%</div>
+                    <p class="text-gray-400">Manutenção Corretiva</p>
+                </div>
+
+                <div class="text-center p-6 bg-white/5 rounded-2xl backdrop-blur" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-green-400 text-2xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-green-400 mb-2">+25%</div>
+                    <p class="text-gray-400">Taxa de Utilização</p>
+                </div>
+
+                <div class="text-center p-6 bg-white/5 rounded-2xl backdrop-blur" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-dollar-sign text-purple-400 text-2xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-purple-400 mb-2">-22%</div>
+                    <p class="text-gray-400">Custo Total Operacional</p>
+                </div>
+            </div>
+
+            <!-- Testimonial -->
+            <div class="max-w-4xl mx-auto">
+                <div class="testimonial-card rounded-2xl p-8 lg:p-12 relative" data-aos="fade-up">
+                    <div class="absolute -top-4 left-8 w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-quote-left text-sm"></i>
+                    </div>
+                    
+                    <p class="text-lg lg:text-xl text-gray-700 italic mb-8 leading-relaxed">
+                        "O método TRACTION da RMX Associados nos permitiu enxergar nossa operação de forma completamente diferente. Em 4 meses, reduzimos nosso custo por km em 19% e aumentamos a disponibilidade da frota de 72% para 91%. A abordagem integrada de custos e reestruturação fez toda a diferença."
+                    </p>
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center text-2xl">
+                            👤
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Diretor Operacional</p>
+                            <p class="text-gray-500">Transportadora Sul Logística</p>
+                        </div>
+                        <div class="ml-auto flex gap-1">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-traction">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+                Pronto para transformar sua transportadora?
+            </h2>
+            <p class="text-xl text-white/90 mb-8">
+                Solicite um diagnóstico gratuito e descubra o potencial de economia na sua operação.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/5511965866812" target="_blank" class="bg-white text-orange-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all flex items-center justify-center gap-3">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    Falar no WhatsApp
+                </a>
+                <a href="mailto:contato@rmxassociados.com.br" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+                    Enviar E-mail
+                </a>
+            </div>
+            <p class="text-white/70 mt-6 text-sm">
+                Resposta em até 2 horas durante horário comercial
+            </p>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                        Entre em contato
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Estamos prontos para ajudar sua transportadora a alcançar novos níveis de eficiência e lucratividade.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <a href="https://wa.me/5511965866812" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fab fa-whatsapp text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">WhatsApp</p>
+                                <p class="text-gray-600">+55 11 96586-6812</p>
+                            </div>
+                            <i class="fas fa-external-link-alt text-gray-400 ml-auto"></i>
+                        </a>
+                        
+                        <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">E-mail</p>
+                                <p class="text-gray-600">contato@rmxassociados.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm">
+                            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-orange-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Atuação</p>
+                                <p class="text-gray-600">Todo território nacional</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-4 bg-orange-50 rounded-xl border border-orange-100">
+                        <p class="text-sm text-orange-800">
+                            <i class="fas fa-clock mr-2"></i>
+                            <strong>Horário de atendimento:</strong><br>
+                            Segunda a Sexta: 8h às 18h<br>
+                            Sábado: 9h às 13h
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold mb-6">Solicite uma proposta</h3>
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Empresa</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+                                    <input type="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                                    <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Tamanho da frota</label>
+                                <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                                    <option>Selecione...</option>
+                                    <option>Até 10 veículos</option>
+                                    <option>11 a 50 veículos</option>
+                                    <option>51 a 200 veículos</option>
+                                    <option>Mais de 200 veículos</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
+                                <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Conte-nos sobre seus principais desafios..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full gradient-traction text-white font-bold py-4 rounded-lg hover:shadow-lg transition-all">
+                                Enviar solicitação
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center font-bold">
+                            RMX
+                        </div>
+                        <span class="text-xl font-bold">RMX Associados</span>
+                    </div>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Consultoria especializada em gestão de custos, consumo e reestruturação de setor para transportadoras. Método TRACTION® proprietário.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-500 transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#sobre" class="hover:text-white transition-all">Sobre</a></li>
+                        <li><a href="#metodo" class="hover:text-white transition-all">Método TRACTION</a></li>
+                        <li><a href="#servicos" class="hover:text-white transition-all">Serviços</a></li>
+                        <li><a href="#resultados" class="hover:text-white transition-all">Resultados</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fab fa-whatsapp text-green-500"></i>
+                            <a href="https://wa.me/5511965866812" target="_blank" class="hover:text-white transition-all">+55 11 96586-6812</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope text-orange-500"></i>
+                            contato@rmxassociados.com.br
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    © 2024 RMX Associados. Todos os direitos reservados.
+                </p>
+                <p class="text-gray-500 text-sm">
+                    Método TRACTION® - Transformação Racional e Contínua para Otimização Integrada
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5511965866812" target="_blank" class="float-whatsapp bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform" title="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Obrigado pelo interesse! Entraremos em contato em breve via WhatsApp ou e-mail.');
+            e.target.reset();
+        }
+        
+        // Counter animation
+        const counters = document.querySelectorAll('.stat-counter');
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target + (target === 500 ? 'M+' : target === 15 ? '' : '+');
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.ceil(current) + (target === 500 ? '' : '');
+                        }
+                    }, 30);
+                    observer.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+        
+        counters.forEach(counter => observer.observe(counter));
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+        
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>"""
+
+# Salvar site da RMX Associados
+with open('/mnt/kimi/output/rmx-associados-site.html', 'w', encoding='utf-8') as f:
+    f.write(site_rmx)
+
+print("="*70)
+print("✅ SITE RMX ASSOCIADOS CRIADO!")
+print("="*70)
+print("\n📁 Arquivo: rmx-associados-site.html")
+print("\n🎨 IDENTIDADE VISUAL:")
+print("   • Nome: RMX Associados")
+print("   • Método: TRACTION® (referência sempre presente)")
+print("   • Cores: Azul corporativo + Laranja (energia/transporte)")
+print("\n📞 CONTATO WHATSAPP:")
+print("   • Link direto: https://wa.me/5511965866812")
+print("   • Botão flutuante no canto inferior direito")
+print("   • Botões em todas as seções de CTA")
+print("\n📄 SEÇÕES DO SITE:")
+print("   1. Hero com simulador de economia")
+print("   2. Stats animados (50+ clientes, 25% redução...)")
+print("   3. Quem somos (RMX + diferenciais)")
+print("   4. Método TRACTION (8 fases explicadas)")
+print("   5. Serviços (3 cards: Custos, Reestruturação, Eficiência)")
+print("   6. Resultados comprovados (4 KPIs + depoimento)")
+print("   7. CTA final (WhatsApp destacado)")
+print("   8. Contato completo (form + WhatsApp + email)")
+print("   9. Footer profissional")
+print("\n🚀 PRÓXIMO PASSO:")
+print("   1. Renomeie para index.html")
+print("   2. Suba no servidor da rmxassociados.com.br")
+print("   3. Configure DNS apontando para o host")
+print("   4. Teste: www.rmxassociados.com.br")
+print("="*70)
