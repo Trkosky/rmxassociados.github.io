@@ -24,6 +24,8 @@
             --light: #F7F7F7;
             --gray: #888;
             --success: #2ECC71;
+            --warning: #F39C12;
+            --danger: #E74C3C;
         }
         
         html {
@@ -152,7 +154,120 @@
             box-shadow: 0 6px 20px rgba(255,107,53,0.4);
         }
         
-        /* Sections General */
+        /* ============================================================
+           ALERT BANNER - NOVO: Frases de impacto no início
+           ============================================================ */
+        .alert-banner {
+            position: fixed;
+            top: 84px; /* Altura da navbar */
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(243, 156, 18, 0.1));
+            border-bottom: 2px solid var(--danger);
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .alert-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px 60px;
+            position: relative;
+        }
+        
+        .alert-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(231, 76, 60, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 2px solid var(--danger);
+            animation: pulse-alert 2s infinite;
+            flex-shrink: 0;
+        }
+        
+        @keyframes pulse-alert {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(231, 76, 60, 0); }
+        }
+        
+        .alert-texts {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .alert-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--light);
+            letter-spacing: 0.5px;
+        }
+        
+        .alert-main .highlight {
+            color: var(--danger);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        
+        .alert-sub {
+            font-size: 1rem;
+            color: var(--gray);
+            font-style: italic;
+            border-left: 3px solid var(--warning);
+            padding-left: 15px;
+        }
+        
+        .alert-cta {
+            padding: 12px 25px;
+            background: var(--danger);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        
+        .alert-cta:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+        }
+        
+        /* Mobile responsive for alert */
+        @media (max-width: 1024px) {
+            .alert-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+                padding: 25px 30px;
+            }
+            
+            .alert-main {
+                font-size: 1.1rem;
+            }
+            
+            .alert-sub {
+                font-size: 0.9rem;
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+        
+        /* ============================================================
+           HERO SECTION - Ajustado para o banner
+           ============================================================ */
         .section {
             min-height: 100vh;
             display: flex;
@@ -163,11 +278,11 @@
             overflow: hidden;
         }
         
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--darker) 0%, #2C3E50 100%);
             position: relative;
             text-align: center;
+            padding-top: 220px; /* Aumentado para acomodar navbar + banner */
         }
         
         .hero::before {
@@ -720,7 +835,7 @@
             background: rgba(255,107,53,0.05);
         }
         
-        .contact-icon {
+        .contact-icon-box {
             width: 60px;
             height: 60px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -849,6 +964,27 @@
             .results-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .alert-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+                padding: 25px 30px;
+            }
+            
+            .alert-main {
+                font-size: 1.1rem;
+            }
+            
+            .alert-sub {
+                font-size: 0.9rem;
+                border-left: none;
+                padding-left: 0;
+            }
+            
+            .hero {
+                padding-top: 280px; /* Mais espaço para banner em mobile */
+            }
         }
         
         @media (max-width: 768px) {
@@ -919,6 +1055,10 @@
                 gap: 20px;
                 text-align: center;
             }
+            
+            .hero {
+                padding-top: 300px; /* Ainda mais espaço em mobile pequeno */
+            }
         }
         
         /* Scrollbar */
@@ -947,20 +1087,11 @@
         <a href="#" class="nav-logo">
             <div class="logo-icon">
                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Estrada em perspectiva - contorno sutil -->
                     <path d="M10 30 L90 30 L85 90 L15 90 Z" stroke="rgba(255,255,255,0.15)" stroke-width="2" fill="none"/>
-                    
-                    <!-- Faixa amarela central -->
                     <line x1="50" y1="30" x2="50" y2="90" stroke="rgba(241,196,15,0.5)" stroke-width="2.5" stroke-dasharray="6 5"/>
-                    
-                    <!-- Bordas brancas sutis -->
                     <line x1="20" y1="30" x2="22" y2="90" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
                     <line x1="80" y1="30" x2="78" y2="90" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-                    
-                    <!-- RMX em branco -->
                     <text x="50" y="62" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="900" font-size="26" fill="white" letter-spacing="-1">RMX</text>
-                    
-                    <!-- Caminhão minimalista -->
                     <rect x="35" y="8" width="30" height="16" rx="2" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
                     <circle cx="42" cy="22" r="2" fill="rgba(255,255,255,0.3)"/>
                     <circle cx="58" cy="22" r="2" fill="rgba(255,255,255,0.3)"/>
@@ -980,7 +1111,8 @@
             <li><a href="#contato">Contato</a></li>
         </ul>
         
-        <a href="https://wa.me/5511965866812?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagnóstico%20gratuito%20para%20minha%20transportadora." target="_blank" ...> Diagnóstico
+        <a href="https://wa.me/5511965866812?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagnóstico%20gratuito%20para%20minha%20transportadora." target="_blank" class="nav-cta">
+            <i class="fab fa-whatsapp"></i> Diagnóstico Grátis
         </a>
         
         <div class="mobile-menu-btn" onclick="toggleMenu()">
@@ -990,11 +1122,31 @@
         </div>
     </nav>
 
+    <!-- ============================================================
+         ALERT BANNER - FRASES DE IMPACTO (NOVO)
+         ============================================================ -->
+    <div class="alert-banner">
+        <div class="alert-content">
+            <div class="alert-icon">⚠️</div>
+            <div class="alert-texts">
+                <div class="alert-main">
+                    A FROTA CRESCEU, <span class="highlight">MAS A GESTÃO CONTINUA IGUAL?</span>
+                </div>
+                <div class="alert-sub">
+                    Crescimento exige revisão de processos e não apenas veículos.
+                </div>
+            </div>
+            <a href="https://wa.me/5511965866812?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagnóstico%20gratuito%20para%20minha%20transportadora." target="_blank" class="alert-cta">
+                RESOLVER AGORA →
+            </a>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="section hero" id="inicio">
         <div class="hero-content fade-in">
             <div class="hero-badge">
-                <span></span> Método TRACTION® Proprietário
+                <i class="fas fa-road"></i> Método TRACTION® Proprietário
             </div>
             
             <h1>
@@ -1004,12 +1156,12 @@
             
             <p class="hero-subtitle">
                 Consultoria especializada em <strong>gestão de custos, consumo e reestruturação</strong> 
-                para transportadoras. Nossa metodologia já reduziu custos operacionais em até 15%.
+                para transportadoras. Nossa metodologia já reduziu custos operacionais em até 25%.
             </p>
             
             <a href="https://wa.me/5511965866812?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagnóstico%20gratuito%20para%20minha%20transportadora." target="_blank" class="hero-cta">
-    <i class="fab fa-whatsapp"></i>
-                Solicitar Diagnóstico
+                <i class="fab fa-whatsapp"></i>
+                Solicitar Diagnóstico Gratuito
             </a>
             
             <div class="hero-stats">
@@ -1040,13 +1192,10 @@
             <div class="problem-grid">
                 <div class="problem-text">
                     <p>
-                        As transportadoras brasileiras enfrentam uma pressão sem precedentes sobre margens e competitividade. 
-                        Com custos logísticos representando <strong>18,4% do PIB</strong> brasileiro, a eficiência operacional 
-                        deixou de ser diferencial para ser questão de sobrevivência.
+                        As transportadoras brasileiras enfrentam pressão sem precedentes sobre margens e competitividade. Custos logísticos representam <strong>18,4% do PIB</strong> brasileiro — o maior da história.
                     </p>
-                    <p>
-                        A reforma tributária de 2026 exigirá reestruturação fiscal e operacional completa, enquanto 
-                        <strong>40% dos caminhões circulam vazios</strong>, desperdiçando recursos e aumentando custos.
+                    <p style="margin-top: 20px;">
+                        A reforma tributária de 2026 exigirá reestruturação completa, enquanto <strong>40% dos caminhões circulam vazios</strong>, desperdiçando recursos.
                     </p>
                     <p style="color: var(--primary); font-weight: 600; margin-top: 30px;">
                         → É hora de transformar dados em decisões e custos em lucro.
@@ -1056,19 +1205,19 @@
                 <div class="stats-grid">
                     <div class="stat-card">
                         <span class="stat-number">18,4%</span>
-                        <div class="stat-label">Custos logísticos do PIB brasileiro<br>(maior da história)</div>
+                        <div class="stat-label">Custos logísticos do PIB<br>(maior da história)</div>
                     </div>
                     <div class="stat-card">
                         <span class="stat-number">40%</span>
-                        <div class="stat-label">Caminhões circulando vazios<br>(ineficiência operacional)</div>
+                        <div class="stat-label">Caminhões circulando vazios<br>(ineficiência)</div>
                     </div>
                     <div class="stat-card">
                         <span class="stat-number">2026</span>
-                        <div class="stat-label">Início da Reforma Tributária<br>(reestruturação obrigatória)</div>
+                        <div class="stat-label">Início da Reforma Tributária<br>(obrigatória)</div>
                     </div>
                     <div class="stat-card">
                         <span class="stat-number">R$2T+</span>
-                        <div class="stat-label">Volume total de custos<br>logísticos anuais</div>
+                        <div class="stat-label">Custos logísticos<br>anuais</div>
                     </div>
                 </div>
             </div>
@@ -1083,8 +1232,7 @@
                 <h2 class="section-title">Método <strong>TRACTION</strong></h2>
                 <p style="color: var(--gray); max-width: 700px; margin: 0 auto;">
                     Transformação Racional e Contínua para Otimização Integrada. 
-                    Metodologia proprietária de 8 fases que integra análise financeira, 
-                    lean logistics e reestruturação organizacional.
+                    Metodologia proprietária de 8 fases.
                 </p>
             </div>
             
@@ -1092,42 +1240,42 @@
                 <div class="traction-card">
                     <span class="traction-letter">T</span>
                     <div class="traction-word">TRANSFORMAR</div>
-                    <p class="traction-desc">Mapeamento e diagnóstico profundo da realidade operacional</p>
+                    <p class="traction-desc">Mapeamento e diagnóstico profundo</p>
                 </div>
                 <div class="traction-card">
                     <span class="traction-letter">R</span>
                     <div class="traction-word">RACIONALIZAR</div>
-                    <p class="traction-desc">Eliminação de desperdícios e otimização Lean</p>
+                    <p class="traction-desc">Eliminação de desperdícios Lean</p>
                 </div>
                 <div class="traction-card">
                     <span class="traction-letter">A</span>
                     <div class="traction-word">ANALISAR</div>
-                    <p class="traction-desc">Benchmarking de custos e indicadores KPIs</p>
+                    <p class="traction-desc">Benchmarking de custos e KPIs</p>
                 </div>
                 <div class="traction-card">
                     <span class="traction-letter">C</span>
                     <div class="traction-word">CONTROLAR</div>
-                    <p class="traction-desc">Sistemas de gestão e monitoramento contínuo</p>
+                    <p class="traction-desc">Sistemas de monitoramento</p>
                 </div>
                 <div class="traction-card">
                     <span class="traction-letter">T</span>
                     <div class="traction-word">TRANSFORMAR</div>
-                    <p class="traction-desc">Reestruturação organizacional e capacitação</p>
+                    <p class="traction-desc">Reestruturação organizacional</p>
                 </div>
                 <div class="traction-card">
                     <span class="traction-letter">I</span>
                     <div class="traction-word">INTEGRAR</div>
-                    <p class="traction-desc">Sistemas, processos e pessoas unificados</p>
+                    <p class="traction-desc">Sistemas e pessoas unificados</p>
                 </div>
                 <div class="traction-card">
                     <span class="traction-letter">O</span>
                     <div class="traction-word">OTIMIZAR</div>
-                    <p class="traction-desc">Melhoria contínua e adaptação ao mercado</p>
+                    <p class="traction-desc">Melhoria contínua</p>
                 </div>
                 <div class="traction-card">
                     <span class="traction-letter">N</span>
                     <div class="traction-word">NIVELAR</div>
-                    <p class="traction-desc">Padronização e sustentabilidade dos resultados</p>
+                    <p class="traction-desc">Padronização dos resultados</p>
                 </div>
             </div>
         </div>
@@ -1144,7 +1292,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">💰</div>
-                    <h3>Gestão de Custos<br>& Consumo</h3>
+                    <h3>Gestão de Custos & Consumo</h3>
                     <ul class="service-list">
                         <li>Custeio ABC por rota e cliente</li>
                         <li>Análise de custo por km rodado</li>
@@ -1157,7 +1305,7 @@
                 
                 <div class="service-card">
                     <div class="service-icon">⚙️</div>
-                    <h3>Reestruturação<br>Setorial</h3>
+                    <h3>Reestruturação Setorial</h3>
                     <ul class="service-list">
                         <li>Redesenho da malha logística</li>
                         <li>Otimização de rotas com IA</li>
@@ -1170,7 +1318,7 @@
                 
                 <div class="service-card">
                     <div class="service-icon">📊</div>
-                    <h3>Eficiência<br>Operacional</h3>
+                    <h3>Eficiência Operacional</h3>
                     <ul class="service-list">
                         <li>Lean Logistics aplicado</li>
                         <li>KPIs em tempo real</li>
@@ -1197,7 +1345,7 @@
                     <div class="timeline-number">1</div>
                     <div class="timeline-content">
                         <h3>Diagnóstico Profundo</h3>
-                        <p>Mapeamento completo da operação, análise de custos fixos e variáveis, identificação de gargalos e desperdícios. Levantamento de baseline e KPIs atuais.</p>
+                        <p>Mapeamento completo da operação, análise de custos fixos e variáveis, identificação de gargalos.</p>
                     </div>
                 </div>
                 
@@ -1205,7 +1353,7 @@
                     <div class="timeline-number">2</div>
                     <div class="timeline-content">
                         <h3>Planejamento Estratégico</h3>
-                        <p>Definição de roadmap de otimização, priorização de quick wins, projeção de cenários pós-reforma tributária e alinhamento com objetivos do negócio.</p>
+                        <p>Definição de roadmap, priorização de quick wins, projeção de cenários pós-reforma.</p>
                     </div>
                 </div>
                 
@@ -1213,7 +1361,7 @@
                     <div class="timeline-number">3</div>
                     <div class="timeline-content">
                         <h3>Implementação Lean</h3>
-                        <p>Redesenho de processos, otimização de rotas, renegociação de contratos, adequação de frota e implementação de controles preventivos.</p>
+                        <p>Redesenho de processos, otimização de rotas, renegociação de contratos.</p>
                     </div>
                 </div>
                 
@@ -1221,7 +1369,7 @@
                     <div class="timeline-number">4</div>
                     <div class="timeline-content">
                         <h3>Reestruturação Organizacional</h3>
-                        <p>Redesenho de estrutura hierárquica, definição de novos cargos e responsabilidades, capacitação de equipes e mudança de cultura.</p>
+                        <p>Redesenho de estrutura hierárquica, capacitação de equipes, mudança de cultura.</p>
                     </div>
                 </div>
                 
@@ -1229,7 +1377,7 @@
                     <div class="timeline-number">5</div>
                     <div class="timeline-content">
                         <h3>Monitoramento Contínuo</h3>
-                        <p>Dashboards em tempo real, auditorias periódicas, ajustes finos e programa de melhoria contínua (Kaizen) para sustentabilidade.</p>
+                        <p>Dashboards em tempo real, auditorias, melhoria contínua (Kaizen).</p>
                     </div>
                 </div>
             </div>
@@ -1242,7 +1390,7 @@
             <div class="section-header">
                 <span class="section-tag">Resultados</span>
                 <h2 class="section-title">Resultados <strong>Comprovados</strong></h2>
-                <p style="color: var(--gray);">Média de resultados alcançados após 6 meses de implementação</p>
+                <p style="color: var(--gray);">Média de resultados após 6 meses de implementação</p>
             </div>
             
             <div class="results-grid">
@@ -1270,8 +1418,7 @@
             
             <div class="testimonial">
                 O método TRACTION da RMX nos permitiu enxergar nossa operação de forma completamente diferente. 
-                Em 4 meses, reduzimos nosso custo por km em 19% e aumentamos a disponibilidade da frota de 72% para 91%. 
-                A abordagem integrada de custos e reestruturação fez toda a diferença.
+                Em 4 meses, reduzimos nosso custo por km em 19% e aumentamos a disponibilidade da frota de 72% para 91%.
                 <div class="testimonial-author">
                     <strong>Diretor Operacional</strong>
                     <span>Transportadora Sul Logística</span>
@@ -1292,25 +1439,25 @@
             
             <div class="contact-methods">
                 <div class="contact-method">
-                    <div class="contact-icon">📱</div>
+                    <div class="contact-icon-box">📱</div>
                     <h3>WhatsApp</h3>
-                    <p><a href="https://wa.me/5511965866812" target="_blank">+55 11 96586-6812</a></p>
+                    <p><a href="https://wa.me/5511965866812?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagnóstico%20gratuito%20para%20minha%20transportadora." target="_blank">+55 11 96586-6812</a></p>
                 </div>
                 <div class="contact-method">
-                    <div class="contact-icon">✉️</div>
+                    <div class="contact-icon-box">✉️</div>
                     <h3>E-mail</h3>
                     <p><a href="mailto:contato@rmxassociados.com.br">contato@rmxassociados.com.br</a></p>
                 </div>
                 <div class="contact-method">
-                    <div class="contact-icon">🌐</div>
+                    <div class="contact-icon-box">🌐</div>
                     <h3>Atuação</h3>
                     <p>Todo território nacional</p>
                 </div>
             </div>
             
-            <a href="https://wa.me/5511965866812" target="_blank" class="final-cta">
+            <a href="https://wa.me/5511965866812?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagnóstico%20gratuito%20para%20minha%20transportadora." target="_blank" class="final-cta">
                 <i class="fab fa-whatsapp"></i>
-                AGENDAR DIAGNÓSTICO
+                AGENDAR DIAGNÓSTICO GRÁTIS
             </a>
         </div>
     </section>
@@ -1344,7 +1491,7 @@
     </footer>
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/5511965866812" target="_blank" style="
+    <a href="https://wa.me/5511965866812?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagnóstico%20gratuito%20para%20minha%20transportadora." target="_blank" style="
         position: fixed;
         bottom: 30px;
         right: 30px;
@@ -1399,10 +1546,14 @@
         // Navbar background on scroll
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
+            const alertBanner = document.querySelector('.alert-banner');
+            
             if (window.scrollY > 100) {
                 navbar.style.background = 'rgba(15, 15, 15, 0.98)';
+                alertBanner.style.background = 'rgba(231, 76, 60, 0.1)';
             } else {
                 navbar.style.background = 'rgba(28, 28, 28, 0.95)';
+                alertBanner.style.background = 'linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(243, 156, 18, 0.1))';
             }
         });
 
@@ -1413,8 +1564,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
