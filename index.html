@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RMX Associados | Consultoria em Gestão de Transporte - Método TRACTION</title>
-    <meta name="description" content="RMX Associados - Consultoria especializada em redução de custos, reestruturação de setor e otimização de transportadoras. Método TRACTION proprietário.">
+    <title>RMX Associados | Consultoria 360° em Gestão de Transporte</title>
+    <meta name="description" content="RMX Associados - Consultoria especializada em gestão 360° de transportadoras: Gerenciamento de Risco, Telemetria, Treinamento Master Driver, Abastecimento e Mapeamento de Maturidade. Método TRACTION proprietário.">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap');
         
         * {
             margin: 0;
@@ -26,6 +26,7 @@
             --success: #2ECC71;
             --warning: #F39C12;
             --danger: #E74C3C;
+            --soft-bg: rgba(255,255,255,0.03);
         }
         
         html {
@@ -154,120 +155,7 @@
             box-shadow: 0 6px 20px rgba(255,107,53,0.4);
         }
         
-        /* ============================================================
-           ALERT BANNER - NOVO: Frases de impacto no início
-           ============================================================ */
-        .alert-banner {
-            position: fixed;
-            top: 84px; /* Altura da navbar */
-            left: 0;
-            right: 0;
-            z-index: 999;
-            background: linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(243, 156, 18, 0.1));
-            border-bottom: 2px solid var(--danger);
-            padding: 0;
-            overflow: hidden;
-        }
-        
-        .alert-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            padding: 20px 60px;
-            position: relative;
-        }
-        
-        .alert-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(231, 76, 60, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            border: 2px solid var(--danger);
-            animation: pulse-alert 2s infinite;
-            flex-shrink: 0;
-        }
-        
-        @keyframes pulse-alert {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
-            50% { box-shadow: 0 0 0 15px rgba(231, 76, 60, 0); }
-        }
-        
-        .alert-texts {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .alert-main {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--light);
-            letter-spacing: 0.5px;
-        }
-        
-        .alert-main .highlight {
-            color: var(--danger);
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-        
-        .alert-sub {
-            font-size: 1rem;
-            color: var(--gray);
-            font-style: italic;
-            border-left: 3px solid var(--warning);
-            padding-left: 15px;
-        }
-        
-        .alert-cta {
-            padding: 12px 25px;
-            background: var(--danger);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        
-        .alert-cta:hover {
-            background: #c0392b;
-            transform: scale(1.05);
-        }
-        
-        /* Mobile responsive for alert */
-        @media (max-width: 1024px) {
-            .alert-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-                padding: 25px 30px;
-            }
-            
-            .alert-main {
-                font-size: 1.1rem;
-            }
-            
-            .alert-sub {
-                font-size: 0.9rem;
-                border-left: none;
-                padding-left: 0;
-            }
-        }
-        
-        /* ============================================================
-           HERO SECTION - Ajustado para o banner
-           ============================================================ */
+        /* Sections General */
         .section {
             min-height: 100vh;
             display: flex;
@@ -278,11 +166,12 @@
             overflow: hidden;
         }
         
+        /* Hero Section - Redesenhado com frases integradas */
         .hero {
             background: linear-gradient(135deg, var(--darker) 0%, #2C3E50 100%);
             position: relative;
             text-align: center;
-            padding-top: 220px; /* Aumentado para acomodar navbar + banner */
+            padding-top: 140px;
         }
         
         .hero::before {
@@ -292,7 +181,7 @@
             right: -20%;
             width: 800px;
             height: 800px;
-            background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,107,53,0.12) 0%, transparent 70%);
             animation: pulse 4s ease-in-out infinite;
         }
         
@@ -302,8 +191,62 @@
         }
         
         .hero-content {
-            max-width: 900px;
+            max-width: 1000px;
             z-index: 10;
+        }
+        
+        /* Impact Phrases - Integradas elegantemente */
+        .impact-phrases {
+            margin-bottom: 40px;
+            padding: 25px 40px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+        }
+        
+        .impact-phrases::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20%;
+            bottom: 20%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--warning));
+            border-radius: 2px;
+        }
+        
+        .impact-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--light);
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .impact-main .highlight {
+            color: var(--primary);
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .impact-main .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+            opacity: 0.5;
+        }
+        
+        .impact-sub {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+            font-style: italic;
         }
         
         .hero-badge {
@@ -322,7 +265,7 @@
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             margin-bottom: 20px;
             line-height: 1.2;
             font-weight: 300;
@@ -334,11 +277,11 @@
         }
         
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--gray);
             margin-bottom: 40px;
             line-height: 1.8;
-            max-width: 700px;
+            max-width: 750px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -356,7 +299,7 @@
             font-size: 1rem;
             transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(255,107,53,0.3);
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
         
         .hero-cta:hover {
@@ -389,6 +332,132 @@
             margin-top: 5px;
         }
         
+        /* Especialidades 360° - NOVA SEÇÃO */
+        .especialidades {
+            background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+            min-height: auto;
+            padding: 80px 60px;
+        }
+        
+        .especialidades-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .especialidade-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .especialidade-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .especialidade-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .especialidade-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,107,53,0.2);
+        }
+        
+        .especialidade-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(255,107,53,0.15), rgba(0,78,137,0.15));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,107,53,0.2);
+        }
+        
+        .especialidade-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--light);
+            font-weight: 600;
+        }
+        
+        .especialidade-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .especialidade-tag {
+            display: inline-block;
+            background: rgba(255,107,53,0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: var(--primary);
+            margin-top: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        /* Badge 360 */
+        .badge-360 {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(255,107,53,0.15), rgba(0,78,137,0.15));
+            border: 2px solid rgba(255,107,53,0.3);
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-top: 40px;
+        }
+        
+        .badge-360-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .badge-360-text {
+            text-align: left;
+        }
+        
+        .badge-360-text strong {
+            display: block;
+            color: var(--light);
+            font-size: 1rem;
+        }
+        
+        .badge-360-text span {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+        
         /* Problem Section */
         .problem {
             background: linear-gradient(135deg, #2C3E50 0%, var(--darker) 100%);
@@ -401,7 +470,7 @@
         
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
         
         .section-tag {
@@ -419,14 +488,21 @@
         }
         
         .section-title {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
+            font-size: 2.6rem;
+            margin-bottom: 15px;
             font-weight: 300;
         }
         
         .section-title strong {
             color: var(--primary);
             font-weight: 700;
+        }
+        
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
         }
         
         .problem-grid {
@@ -953,7 +1029,8 @@
         
         /* Responsive */
         @media (max-width: 1024px) {
-            .traction-grid {
+            .traction-grid,
+            .especialidades-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
@@ -965,25 +1042,12 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .alert-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-                padding: 25px 30px;
-            }
-            
-            .alert-main {
+            .impact-main {
                 font-size: 1.1rem;
             }
             
-            .alert-sub {
-                font-size: 0.9rem;
-                border-left: none;
-                padding-left: 0;
-            }
-            
-            .hero {
-                padding-top: 280px; /* Mais espaço para banner em mobile */
+            .hero h1 {
+                font-size: 2.5rem;
             }
         }
         
@@ -1000,12 +1064,25 @@
                 display: flex;
             }
             
-            .section {
-                padding: 80px 30px;
+            .section, .especialidades {
+                padding: 60px 30px;
             }
             
-            .hero h1 {
-                font-size: 2.2rem;
+            .hero {
+                padding-top: 120px;
+            }
+            
+            .impact-phrases {
+                padding: 20px 25px;
+                margin-bottom: 30px;
+            }
+            
+            .impact-main {
+                font-size: 1rem;
+            }
+            
+            .impact-sub {
+                font-size: 0.9rem;
             }
             
             .section-title {
@@ -1015,15 +1092,16 @@
             .problem-grid,
             .services-grid,
             .traction-grid,
+            .especialidades-grid,
             .results-grid,
             .contact-methods {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 25px;
             }
             
             .hero-stats {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 25px;
             }
             
             .stats-grid {
@@ -1056,8 +1134,8 @@
                 text-align: center;
             }
             
-            .hero {
-                padding-top: 300px; /* Ainda mais espaço em mobile pequeno */
+            .especialidades {
+                min-height: auto;
             }
         }
         
@@ -1104,6 +1182,7 @@
         </a>
         
         <ul class="nav-links">
+            <li><a href="#especialidades">Especialidades</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#metodo">Método</a></li>
             <li><a href="#servicos">Serviços</a></li>
@@ -1122,41 +1201,32 @@
         </div>
     </nav>
 
-    <!-- ============================================================
-         ALERT BANNER - FRASES DE IMPACTO (NOVO)
-         ============================================================ -->
-    <div class="alert-banner">
-        <div class="alert-content">
-            <div class="alert-icon">⚠️</div>
-            <div class="alert-texts">
-                <div class="alert-main">
-                    A FROTA CRESCEU, <span class="highlight">MAS A GESTÃO CONTINUA IGUAL?</span>
-                </div>
-                <div class="alert-sub">
-                    Crescimento exige revisão de processos e não apenas veículos.
-                </div>
-            </div>
-            <a href="https://wa.me/5511965866812?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagnóstico%20gratuito%20para%20minha%20transportadora." target="_blank" class="alert-cta">
-                RESOLVER AGORA →
-            </a>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
+    <!-- Hero Section com Frases de Impacto Integradas -->
     <section class="section hero" id="inicio">
         <div class="hero-content fade-in">
+            
+            <!-- Frases de Impacto - Agora integradas elegantemente -->
+            <div class="impact-phrases">
+                <div class="impact-main">
+                    A frota cresceu, <span class="highlight">mas a gestão continua igual?</span>
+                </div>
+                <div class="impact-sub">
+                    Crescimento exige revisão de processos e não apenas veículos
+                </div>
+            </div>
+            
             <div class="hero-badge">
                 <i class="fas fa-road"></i> Método TRACTION® Proprietário
             </div>
             
             <h1>
-                Reduza custos e <strong>transforme</strong><br>
-                sua transportadora
+                Consultoria <strong>360°</strong> em Gestão de Transporte
             </h1>
             
             <p class="hero-subtitle">
-                Consultoria especializada em <strong>gestão de custos, consumo e reestruturação</strong> 
-                para transportadoras. Nossa metodologia já reduziu custos operacionais em até 25%.
+                Análise completa da sua operação: Gerenciamento de Risco, Telemetria, 
+                Master Driver, Abastecimento e Mapeamento de Maturidade. 
+                Tudo integrado para transformar sua transportadora.
             </p>
             
             <a href="https://wa.me/5511965866812?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagnóstico%20gratuito%20para%20minha%20transportadora." target="_blank" class="hero-cta">
@@ -1174,8 +1244,98 @@
                     <div class="hero-stat-label">Redução Média de Custos</div>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-number">R$500M+</span>
-                    <div class="hero-stat-label">Economizados para Clientes</div>
+                    <span class="hero-stat-number">360°</span>
+                    <div class="hero-stat-label">Visão Integrada da Operação</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: Especialidades 360° -->
+    <section class="section especialidades" id="especialidades">
+        <div class="container fade-in">
+            <div class="section-header">
+                <span class="section-tag">Nossas Especialidades</span>
+                <h2 class="section-title">Gestão <strong>360°</strong> da Sua Operação</h2>
+                <p class="section-subtitle">
+                    Não olhamos apenas para um aspecto. Analisamos todos os setores críticos 
+                    da sua transportadora para gerar resultado real e sustentável.
+                </p>
+            </div>
+            
+            <div class="especialidades-grid">
+                <!-- Gerenciamento de Risco -->
+                <div class="especialidade-card">
+                    <div class="especialidade-icon">🛡️</div>
+                    <h3>Gerenciamento de Risco (GR)</h3>
+                    <p>
+                        Identificação, avaliação e mitigação de riscos operacionais e financeiros. 
+                        Proteção da sua frota, carga e equipe com estratégias preventivas.
+                    </p>
+                    <span class="especialidade-tag">MITIGAÇÃO ATIVA</span>
+                </div>
+                
+                <!-- Telemetria -->
+                <div class="especialidade-card">
+                    <div class="especialidade-icon">📡</div>
+                    <h3>Telemetria & Tecnologia</h3>
+                    <p>
+                        Validação e parametrização de sistemas de rastreamento. 
+                        Dados em tempo real para decisões assertivas e monitoramento contínuo.
+                    </p>
+                    <span class="especialidade-tag">DADOS EM TEMPO REAL</span>
+                </div>
+                
+                <!-- Master Driver -->
+                <div class="especialidade-card">
+                    <div class="especialidade-icon">👨‍✈️</div>
+                    <h3>Treinamento Master Driver</h3>
+                    <p>
+                        Capacitação especializada de motoristas em direção defensiva, 
+                        economia de combustível e segurança. Redução de acidentes e custos.
+                    </p>
+                    <span class="especialidade-tag">CAPACITAÇÃO CONTÍNUA</span>
+                </div>
+                
+                <!-- Abastecimento -->
+                <div class="especialidade-card">
+                    <div class="especialidade-icon">⛽</div>
+                    <h3>Abastecimento Estratégico</h3>
+                    <p>
+                        Negociação de preços com postos parceiros e controle de consumo. 
+                        Redução de até 18% nos custos de combustível com gestão inteligente.
+                    </p>
+                    <span class="especialidade-tag">REDUÇÃO DE CUSTOS</span>
+                </div>
+                
+                <!-- Mapeamento de Maturidade -->
+                <div class="especialidade-card">
+                    <div class="especialidade-icon">📊</div>
+                    <h3>Mapeamento de Maturidade</h3>
+                    <p>
+                        Avaliação do nível de desenvolvimento de cada setor da empresa. 
+                        Plano de evolução estruturado para alcançar excelência operacional.
+                    </p>
+                    <span class="especialidade-tag">EVOLUÇÃO ESTRUTURADA</span>
+                </div>
+                
+                <!-- Análise 360 -->
+                <div class="especialidade-card">
+                    <div class="especialidade-icon">🎯</div>
+                    <h3>Análise 360° Integrada</h3>
+                    <p>
+                        Cruzamento de dados de todos os setores para identificar gargalos 
+                        ocultos e oportunidades de otimização em toda a cadeia operacional.
+                    </p>
+                    <span class="especialidade-tag">VISÃO HOLÍSTICA</span>
+                </div>
+            </div>
+            
+            <div class="badge-360">
+                <div class="badge-360-icon">360</div>
+                <div class="badge-360-text">
+                    <strong>Tudo conectado. Tudo analisado.</strong>
+                    <span>Resultado real para sua transportadora</span>
                 </div>
             </div>
         </div>
@@ -1433,7 +1593,7 @@
             <span class="section-tag">Contato</span>
             <h2 class="section-title" style="margin-bottom: 20px;">Vamos <strong>Conversar?</strong></h2>
             <p style="color: var(--gray); font-size: 1.1rem; margin-bottom: 40px;">
-                Transforme sua transportadora em uma operação de alta performance.<br>
+                Transforme sua transportadora com uma visão 360° da operação.<br>
                 Diagnóstico inicial sem compromisso.
             </p>
             
@@ -1546,14 +1706,11 @@
         // Navbar background on scroll
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
-            const alertBanner = document.querySelector('.alert-banner');
             
             if (window.scrollY > 100) {
                 navbar.style.background = 'rgba(15, 15, 15, 0.98)';
-                alertBanner.style.background = 'rgba(231, 76, 60, 0.1)';
             } else {
                 navbar.style.background = 'rgba(28, 28, 28, 0.95)';
-                alertBanner.style.background = 'linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(243, 156, 18, 0.1))';
             }
         });
 
